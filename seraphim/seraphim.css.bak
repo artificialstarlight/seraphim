@@ -1,0 +1,21 @@
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+p {
+  color: white;
+  font-family: courier-new;
+  font-size: 30px;
+}
+#main_button {
+  width: 150px;
+  height: 150px;
+  background-image: url('seraphim.png');
+  background-size: cover;
+  background-color: #eee;
+  }

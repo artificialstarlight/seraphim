@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Seraphim</title>
+<link rel="stylesheet" href="seraphim.css">
+<meta charset="UTF-8">
+</head>
+
+<body>
+<h1 style="text-align:center;">Seraphim</h1>
+<div class="container">
+<button id="main_button" style=text-align:center;"></button>
+</div>
+<p style="text-align:center;">You have <a id="display">0</a> Eyes</p>
+<img id = "eye" style="display:none" src="eye.png"/>
+        <script type="text/javascript">
+        var count = 0;
+        var btn = document.getElementById("main_button");
+        var disp = document.getElementById("display");
+        btn.onclick = function () {
+	    if(count < 20){
+            count++;
+		}else if(count>=20 && count<125){
+			count+=5;
+		}else if(count>=125){
+			count+=10;
+			show_image("eye.png", 200, 300, 'main_button');
+			
+	}
+	    disp.innerHTML = count;
+        }
+img1_coordinates = coordinates($("#btn"));
+function show_image(src, width, height, alt) {
+  var img = document.createElement("img");
+  img.src = src;
+  img.width = width;
+  img.height = height;
+  img.alt = alt;
+  
+  // set the position
+  img.style.position = 'absolute';
+  img.style.top = document.body.clientHeight * Math.random() + 'px';
+  img.style.left = document.body.clientWidth * Math.random() + 'px';
+  img1_coordinates = coordinates($("#img"));
+  if(!overlap(img1_coordinates,img2_coordinates)){
+    document.body.appendChild(img);
+}
+var overlap = function(coordinates1, coordinates2){
+        // !!INCOMPLETE - This only check the top horizontal positions of the two images
+        if(coordinates2.top_left.x_pos <= coordinates1.top_right.x_pos)
+            return true;
+        else
+            return false;
+    };
+}
+</script>
+</body>
+<html>
